@@ -46,3 +46,32 @@ function autoSlide() {
 }
 
 autoSlide();
+
+let showOverlay = false;
+
+const overlay = document.querySelector(".overlay");
+const iframe = overlay.querySelector("iframe");
+
+function openOverlay(videoUrl) {
+	overlay.style.display = "flex";
+	iframe.src = videoUrl;
+	document.body.style.overflow = "hidden";
+}
+
+function closeOverlay() {
+	overlay.style.display = "none";
+	iframe.src = "";
+	document.body.style.overflow = "";
+}
+
+function toggleVideoOverlay() {
+	const videoUrl = "https://www.youtube.com/embed/whhveZWkdJY?autoplay=1&amp;ab_channel=TurtleCanCarry";
+
+	showOverlay = !showOverlay;
+
+	if (showOverlay) {
+		openOverlay(videoUrl);
+	} else {
+		closeOverlay(overlay, iframe);
+	}
+}

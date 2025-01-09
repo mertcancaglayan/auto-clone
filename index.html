@@ -256,7 +256,54 @@
 				<button onclick="selectSlide(3)" class="banner-slider-nav-btn"><span></span></button>
 			</div>
 		</div>
+		<main>
+			<section class="about-us-section">
+				<div class="container">
+					<div class="about-us-section-content">
+						<div class="about-us-section-video">
+							<div class="about-us-section-image">
+								<img src="assets/covervideo.jpg" alt="about us img" />
+								<div class="video-play">
+									<button onclick="toggleVideoOverlay()" class="video-play-button">
+										<span></span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="about-us-section-text">
+							<h2 class="section-title">BİZ ;</h2>
+							<div class="description">
+								<p>
+									Temelleri 1979 yılında atılan CAN OTOMOTİV, 40 yılı aşan üretim yolculuğunda kalite,
+									estetik ve ergonomiyi hep ön planda tutarak Türkiye’nin otomotiv sektöründe büyük ve
+									başarılı şirketlerinden biri haline gelmiştir.
+								</p>
+								<p>
+									Gelişmiş ve dünya standartlarındaki makine parkuru ile tecrübesini birleştirerek,
+									yüksek kaliteyi, düşük maliyetle tüketiciye ulaştıran ender şirketlerden birisi
+									olmuştur.
+								</p>
+								<p>
+									İnovasyon, AR-GE ve ÜR-GE’ye yaptığı yatırımlar neticesinde, benzersiz
+									tasarımlarıyla, yüksek kaliteli ürünleriyle ve hep müşteri memnuniyetini ön planda
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
 
+		<div class="overlay">
+			<div class="video-frame-wrapper">
+				<div class="video-frame">
+					<iframe frameborder="0" allowfullscreen="" allow="autoplay; fullscreen" src=""></iframe>
+				</div>
+			</div>
+			<button onclick="toggleVideoOverlay()" class="close-overlay" aria-label="Close (Press escape to close)">
+				<i class="fas fa-times"></i>
+			</button>
+		</div>
 		<script src="script.js"></script>
 	</body>
 </html>
