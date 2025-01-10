@@ -12,7 +12,7 @@ function mobileNavbarToggle() {
 mobileMenuShowBtn.addEventListener("click", mobileNavbarToggle);
 mobileNavCloseBtn.addEventListener("click", mobileNavbarToggle);
 
-function slideTo(position) {
+function bannerSlideTo(position) {
 	const slider = document.querySelector(".banner-slider");
 	slider.scrollTo({
 		left: position,
@@ -27,7 +27,7 @@ function selectSlide(index) {
 	const slideWidth = slides[0].clientWidth;
 	const newScrollPosition = slideWidth * index;
 
-	slideTo(newScrollPosition);
+	bannerSlideTo(newScrollPosition);
 
 	navButtons.forEach((btn, idx) => {
 		btn.classList.toggle("active", idx === index);
@@ -35,7 +35,7 @@ function selectSlide(index) {
 }
 
 let currentSlideIndex = 0;
-function autoSlide() {
+function bannerAutoSlide() {
 	const slides = document.querySelectorAll(".slider-item");
 	const totalSlides = slides.length;
 
@@ -45,7 +45,7 @@ function autoSlide() {
 	}, 5000);
 }
 
-autoSlide();
+bannerAutoSlide();
 
 let showOverlay = false;
 
@@ -64,14 +64,37 @@ function closeOverlay() {
 	document.body.style.overflow = "";
 }
 
-function toggleVideoOverlay() {
-	const videoUrl = "https://www.youtube.com/embed/whhveZWkdJY?autoplay=1&amp;ab_channel=TurtleCanCarry";
-
+function toggleVideoOverlay(videoUrl) {
 	showOverlay = !showOverlay;
 
 	if (showOverlay) {
 		openOverlay(videoUrl);
 	} else {
-		closeOverlay(overlay, iframe);
+		closeOverlay();
+	}
+}
+
+function slide(direction) {
+	const sliderContainer = document.querySelector(".slider-container");
+	const sliderCard = document.querySelector(".slider-card");
+
+	const slideGap = parseInt(getComputedStyle(sliderContainer).gap, 10); 
+
+	const slideWidth = sliderCard.offsetWidth + slideGap;
+
+	const maxScrollLeft = sliderContainer.scrollWidth - sliderContainer.clientWidth;
+
+	if (direction === "prev") {
+		if (sliderContainer.scrollLeft === 0) return;
+		sliderContainer.scrollBy({
+			left: -slideWidth,
+			behavior: "smooth",
+		});
+	} else if (direction === "next") {
+		if (sliderContainer.scrollLeft === maxScrollLeft) return;
+		sliderContainer.scrollBy({
+			left: slideWidth,
+			behavior: "smooth",
+		});
 	}
 }

@@ -546,6 +546,7 @@ h2.section-title {
 	font-size: 30px;
 	font-weight: 700;
 	position: relative;
+	text-transform: uppercase;
 }
 
 h2.section-title::after {
@@ -681,7 +682,7 @@ h2.section-title::after {
 	opacity: 0;
 }
 
-figcaption {
+.product-card figcaption {
 	margin-top: 5px;
 	font-size: 14px;
 	flex-grow: 1;
@@ -700,6 +701,93 @@ figcaption {
 
 .product-card:hover figcaption {
 	color: var(--secondary-color);
+}
+
+.our-videos-section {
+	width: 100%;
+	padding: 70px 0;
+	display: block;
+	justify-self: center;
+}
+
+.our-videos-section h2.section-title {
+	margin: 0 0 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.our-videos-section h2.section-title::after,
+.our-videos-section h2.section-title::before {
+	left: auto;
+}
+
+.slider-section .container {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.slider-section .slider-btn {
+	border-radius: 50%;
+	color: white;
+	font-size: 15px;
+	background-color: var(--secondary-color);
+	padding: 10px;
+	width: 35px;
+	height: 35px;
+	padding-right: 13px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+
+.slider-section .slider-btn:hover {
+	background-color: var(--primary-color);
+}
+
+.slider-section .slider-container {
+	display: flex;
+	max-width: 100%;
+	width: 100%;
+	display: flex;
+	height: 100%;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	overflow-y: hidden;
+	overflow-x: auto;
+	overscroll-behavior-inline: contain;
+	gap: 1%;
+}
+
+.slider-card {
+	min-width: 24.25%;
+	max-width: 24.25%;
+
+	a {
+		text-decoration: none;
+		max-width: 100%;
+		color: var(--primary-color);
+
+		figure {
+			min-width: 100%;
+			img {
+				max-width: 100%;
+				object-fit: cover;
+				border-radius: 20px;
+			}
+		}
+	}
+}
+
+.slider-card figure figcaption {
+	display: block;
+	justify-self: center;
+	font-weight: 600;
+	color: var(--primary-color);
 }
 
 @media (min-width: 768px) {
@@ -765,6 +853,11 @@ figcaption {
 		padding: 0;
 		margin: 10px 0;
 	}
+
+	.slider-card {
+		min-width: 32.6%;
+		max-width: 32.6%;
+	}
 }
 
 @media (max-width: 768px) {
@@ -780,11 +873,27 @@ figcaption {
 		flex: 0 0 100%;
 		max-width: 100%;
 	}
+	.slider-section .slider-btn {
+		display: none;
+	}
+
+	.slider-card {
+		min-width: 49.25%;
+		max-width: 49.25%;
+	}
 }
 
 @media (max-width: 576px) {
 	.container {
 		width: 100%;
+	}
+
+	.slider-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-width: 99.25%;
+		max-width: 99.25%;
 	}
 }
 
