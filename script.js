@@ -50,35 +50,52 @@ bannerAutoSlide();
 let showOverlay = false;
 
 const overlay = document.querySelector(".overlay");
+const overlayVideoWrapper = overlay.querySelector(".video-frame-wrapper");
 const iframe = overlay.querySelector("iframe");
+const overlayCarouselWrapper = overlay.querySelector(".overlay-carousel-wrapper");
 
-function openOverlay(videoUrl) {
+function openVideoOverlay(content) {
 	overlay.style.display = "flex";
-	iframe.src = videoUrl;
+	overlayVideoWrapper.style.display = "block";
+	iframe.src = content;
 	document.body.style.overflow = "hidden";
+}
+
+function openCarouselOverlay(content) {
+	overlay.style.display = "flex";
+	overlayCarouselWrapper.style.display = "block";
+
+	const carouselItems = document.querySelectorAll(".carousel-item");
+	carouselItems[content].scrollIntoView({ behavior: "smooth" });
 }
 
 function closeOverlay() {
 	overlay.style.display = "none";
 	iframe.src = "";
 	document.body.style.overflow = "";
+	overlayCarouselWrapper.style.display = "none";
+	overlayVideoWrapper.style.display = "none";
 }
 
-function toggleVideoOverlay(videoUrl) {
+function toggleOverlay(content, type) {
 	showOverlay = !showOverlay;
 
-	if (showOverlay) {
-		openOverlay(videoUrl);
-	} else {
+	if (!showOverlay) {
 		closeOverlay();
+	}
+
+	if (type === "video") {
+		openVideoOverlay(content);
+	} else if (type === "image") {
+		openCarouselOverlay(content);
 	}
 }
 
-function slide(direction) {
-	const sliderContainer = document.querySelector(".slider-container");
+function slide(direction, sliderId) {
+	const sliderContainer = document.getElementById(`slider-${sliderId}`);
 	const sliderCard = document.querySelector(".slider-card");
 
-	const slideGap = parseInt(getComputedStyle(sliderContainer).gap, 10); 
+	const slideGap = parseInt(getComputedStyle(sliderContainer).gap, 10);
 
 	const slideWidth = sliderCard.offsetWidth + slideGap;
 
@@ -93,6 +110,30 @@ function slide(direction) {
 	} else if (direction === "next") {
 		if (sliderContainer.scrollLeft === maxScrollLeft) return;
 		sliderContainer.scrollBy({
+			left: slideWidth,
+			behavior: "smooth",
+		});
+	}
+}
+
+function slideCarousel(direction) {
+	const carouselItem = document.querySelector(".carousel-item");
+	const carousel = document.querySelector(".carousel");
+
+	const slideWidth = carouselItem.offsetWidth;
+
+	const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+
+	if (direction === "prev") {
+		if (carousel.scrollLeft === 0) return;
+		carousel.scrollBy({
+			left: -slideWidth,
+			behavior: "smooth",
+		});
+	} else if (direction === "next") {
+		if (carousel.scrollLeft === maxScrollLeft) return;
+		carousel.scrollBy({
 			left: slideWidth,
 			behavior: "smooth",
 		});
