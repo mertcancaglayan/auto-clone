@@ -25,6 +25,43 @@ section {
 	padding: 70px 0;
 }
 
+.button1,
+.button2 {
+	background-color: var(--secondary-color);
+	border-radius: 50px;
+	border: none;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+
+	&:hover {
+		background-color: var(--primary-color);
+	}
+
+	a {
+		padding: 15px 10px;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		font-weight: 700;
+		font-size: 1rem;
+	}
+
+	i {
+		font-size: 30px;
+		margin-right: 10px;
+	}
+}
+
+.button1 {
+	width: 100%;
+}
+
+.button2 {
+	border: solid 2px white;
+}
+
 .header-top {
 	display: block;
 	max-width: 100%;
@@ -412,7 +449,6 @@ main {
 .about-us-section {
 	width: 100%;
 	display: flex;
-
 }
 
 .about-us-section .container {
@@ -566,7 +602,6 @@ h2.section-title::after {
 .our-products-section {
 	width: 100%;
 	background-color: var(--bg-color-dark);
-	
 }
 
 .our-products-content-area {
@@ -608,35 +643,6 @@ h2.section-title::after {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-
-	button {
-		background-color: var(--secondary-color);
-		width: 100%;
-		border-radius: 50px;
-		border: none;
-		cursor: pointer;
-		transition: 0.3s ease-in-out;
-
-		&:hover {
-			background-color: var(--primary-color);
-		}
-
-		a {
-			padding: 15px 10px;
-			text-align: center;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			color: white;
-			font-weight: 700;
-			font-size: 1rem;
-		}
-
-		i {
-			font-size: 30px;
-			margin-right: 10px;
-		}
-	}
 }
 
 .our-products-gallery {
@@ -797,23 +803,28 @@ h2.section-title::after {
 
 .our-images-section {
 	background-color: var(--bg-color-dark);
-	
+}
+
+.brands-section .button1 {
+	display: block;
+	justify-self: center;
+	max-width: 150px;
+	margin: 50px 0 20px;
 }
 
 #slider-brands {
 	gap: 50px;
 }
 
-#slider-brands .slider-card{
+#slider-brands .slider-card {
 	min-width: 12.25%;
 	max-width: 12.25%;
-
 }
 
-#slider-brands .slider-card figure{
+#slider-brands .slider-card figure {
 	cursor: pointer;
 	border-radius: 20px;
-	transition: .3s ease-in-out;
+	transition: 0.3s ease-in-out;
 	max-width: 100%;
 }
 
@@ -821,11 +832,45 @@ h2.section-title::after {
 	background-color: var(--bg-color-dark);
 }
 
-#slider-brands .slider-card figure img  {
+#slider-brands .slider-card figure img {
 	max-width: 100%;
 }
 
+.cta-section {
+	background-image: linear-gradient(rgb(48, 57, 53, 0.8), rgb(48, 57, 53, 0.8)),
+		url(https://www.canotomotiv.com.tr/yuklemeler/imaj/fotodsc05071.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	position: relative;
+	background-attachment: fixed;
+}
 
+.cta-section .container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	text-align: center;
+	color: white;
+}
+
+.cta-section .cta-title {
+	font-weight: 700;
+	font-size: 35px;
+}
+
+.cta-section .cta-content {
+	font-size: 20px;
+	font-weight: 300;
+}
+
+.cta-section .cta-buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
 
 @media (min-width: 768px) {
 	.navbar-left {
@@ -846,6 +891,11 @@ h2.section-title::after {
 @media (max-width: 1200px) {
 	.container {
 		max-width: 960px;
+	}
+
+	#slider-brands .slider-card {
+		min-width: 15.25%;
+		max-width: 15.25%;
 	}
 }
 
@@ -895,6 +945,13 @@ h2.section-title::after {
 		min-width: 32.6%;
 		max-width: 32.6%;
 	}
+
+	
+	#slider-brands .slider-card {
+		min-width: 18.25%;
+		max-width: 18.25%;
+	}
+
 }
 
 @media (max-width: 768px) {
@@ -918,6 +975,11 @@ h2.section-title::after {
 		min-width: 49.25%;
 		max-width: 49.25%;
 	}
+
+	#slider-brands .slider-card {
+		min-width: 25.25%;
+		max-width: 25.25%;
+	}
 }
 
 @media (max-width: 576px) {
@@ -931,6 +993,11 @@ h2.section-title::after {
 		align-items: center;
 		min-width: 99.25%;
 		max-width: 99.25%;
+	}
+
+	#slider-brands .slider-card {
+		min-width: 45.25%;
+		max-width: 45.25%;
 	}
 }
 
