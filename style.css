@@ -21,6 +21,10 @@ body {
 	line-height: 1.5;
 }
 
+section {
+	padding: 70px 0;
+}
+
 .header-top {
 	display: block;
 	max-width: 100%;
@@ -408,7 +412,7 @@ main {
 .about-us-section {
 	width: 100%;
 	display: flex;
-	padding: 70px 0;
+
 }
 
 .about-us-section .container {
@@ -562,7 +566,7 @@ h2.section-title::after {
 .our-products-section {
 	width: 100%;
 	background-color: var(--bg-color-dark);
-	padding: 70px 0;
+	
 }
 
 .our-products-content-area {
@@ -705,7 +709,7 @@ h2.section-title::after {
 
 .our-videos-section {
 	width: 100%;
-	padding: 70px 0;
+
 	display: block;
 	justify-self: center;
 }
@@ -770,8 +774,8 @@ h2.section-title::after {
 	a {
 		text-decoration: none;
 		max-width: 100%;
-	cursor: pointer;
-	color: var(--primary-color);
+		cursor: pointer;
+		color: var(--primary-color);
 
 		figure {
 			min-width: 100%;
@@ -793,8 +797,35 @@ h2.section-title::after {
 
 .our-images-section {
 	background-color: var(--bg-color-dark);
-	padding: 70px 0;
+	
 }
+
+#slider-brands {
+	gap: 50px;
+}
+
+#slider-brands .slider-card{
+	min-width: 12.25%;
+	max-width: 12.25%;
+
+}
+
+#slider-brands .slider-card figure{
+	cursor: pointer;
+	border-radius: 20px;
+	transition: .3s ease-in-out;
+	max-width: 100%;
+}
+
+#slider-brands .slider-card figure:hover {
+	background-color: var(--bg-color-dark);
+}
+
+#slider-brands .slider-card figure img  {
+	max-width: 100%;
+}
+
+
 
 @media (min-width: 768px) {
 	.navbar-left {
@@ -1013,7 +1044,7 @@ h2.section-title::after {
 	outline: none;
 	color: white;
 	font-size: 50px;
-	transition: all .3s ease;
+	transition: all 0.3s ease;
 	cursor: pointer;
 }
 
