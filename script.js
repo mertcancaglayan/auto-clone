@@ -143,8 +143,6 @@ function autoSlider() {
 	}, 5000);
 }
 
-
-
 autoSlider();
 
 function slideCarousel(direction) {
@@ -168,4 +166,35 @@ function slideCarousel(direction) {
 			behavior: "smooth",
 		});
 	}
+}
+
+// Store references to elements once
+const searchArea = document.querySelector(".search");
+const menuArea = document.querySelector(".menu");
+const navbarLeft = document.querySelector(".navbar-left");
+
+let lastScrollTop = 0;
+
+window.addEventListener("scroll", () => {
+	const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+	if (currentScroll === 0) {
+		showSearchArea();
+	} else if (currentScroll > lastScrollTop) {
+		hideSearchArea();
+	}
+
+	lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+
+function hideSearchArea() {
+	searchArea.style.height = 0;
+	searchArea.style.opacity = 0;
+	menuArea.style.marginBottom = "25px";
+}
+
+function showSearchArea() {
+	searchArea.style.height = "40px";
+	searchArea.style.opacity = 1;
+	menuArea.style.marginBottom = 0;
 }
