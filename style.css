@@ -19,6 +19,7 @@ body {
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.5;
+	position: relative;
 }
 
 section {
@@ -174,7 +175,6 @@ section {
 	flex-direction: column;
 }
 
-
 .navbar-right .menu ul {
 	margin: 0px;
 	padding: 0;
@@ -189,7 +189,6 @@ section {
 	white-space: nowrap;
 	padding: 0px 0px 7px 0px;
 	cursor: pointer;
-
 }
 
 .navbar-right .menu ul li a {
@@ -1020,6 +1019,38 @@ footer {
 	color: #333;
 }
 
+.scroll-top-btn {
+	position: fixed;
+	right: 0px;
+	bottom: 75px;
+	margin: 0;
+	text-decoration: none;
+	z-index: 9999;
+	transition: all .6s ease;
+	opacity: 0;
+	width: 0;
+}
+
+.scroll-top-btn button {
+	width: 40px;
+	height: 40px;
+	outline: none;
+	cursor: pointer;
+	background-color: var(--secondary-color);
+	color: white;
+	display: block;
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+	border: none;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+
+.scroll-top-btn button i {
+    font-size: 20px;
+}
 
 @media (min-width: 768px) {
 	.navbar-left {

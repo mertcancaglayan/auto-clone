@@ -168,7 +168,6 @@ function slideCarousel(direction) {
 	}
 }
 
-// Store references to elements once
 const searchArea = document.querySelector(".search");
 const menuArea = document.querySelector(".menu");
 const navbarLeft = document.querySelector(".navbar-left");
@@ -180,8 +179,10 @@ window.addEventListener("scroll", () => {
 
 	if (currentScroll === 0) {
 		showSearchArea();
+		hideScrollTopBtn();
 	} else if (currentScroll > lastScrollTop) {
 		hideSearchArea();
+		showScrollTopBtn();
 	}
 
 	lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
@@ -197,4 +198,25 @@ function showSearchArea() {
 	searchArea.style.height = "40px";
 	searchArea.style.opacity = 1;
 	menuArea.style.marginBottom = 0;
+}
+
+const scrollTopBtn = document.querySelector(".scroll-top-btn");
+
+function hideScrollTopBtn() {
+	scrollTopBtn.style.opacity = 0;
+	scrollTopBtn.style.width = 0;
+}
+
+function showScrollTopBtn() {
+	scrollTopBtn.style.opacity = 1;
+	scrollTopBtn.style.width = "auto";
+}
+
+scrollTopBtn.addEventListener("click", scrollTop);
+
+function scrollTop() {
+	window.scrollTo({
+		top: 0,
+		behavior: "smooth",
+	});
 }
