@@ -794,6 +794,20 @@ h2.section-title::after {
 	}
 }
 
+.slider-card .img-container {
+	position: relative;
+}
+
+.slider-card .img-container .video-play .video-play-button::after,
+.slider-card .img-container .video-play .video-play-button::before {
+	width: 48px;
+	height: 48px;
+}
+
+.slider-card .img-container .video-play .video-play-button span {
+	scale: 0.6;
+}
+
 .slider-card figure figcaption {
 	display: block;
 	justify-self: center;
@@ -870,6 +884,11 @@ h2.section-title::after {
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
+}
+
+.cta-buttons button a {
+	padding: 8px 35px;
+	font-size: 16px;
 }
 
 footer {
@@ -1075,13 +1094,9 @@ footer {
 		min-width: 18.25%;
 		max-width: 18.25%;
 	}
-	.footer-logos {
-		display: none;
-	}
 
 	.footer-top {
 		flex-wrap: wrap;
-		gap: 50px;
 	}
 
 	.footer-top-item {
@@ -1089,6 +1104,7 @@ footer {
 		-ms-flex: 0 0 50%;
 		flex: 0 0 50%;
 		max-width: 50%;
+		margin: 0 0 50px;
 	}
 
 	.footer-top-item.footer-us {
@@ -1152,6 +1168,10 @@ footer {
 		-ms-flex: 0 0 100%;
 		flex: 0 0 100%;
 		max-width: 100%;
+	}
+
+	.overlay-carousel-wrapper .carousel-btn {
+		display: none;
 	}
 }
 
@@ -1335,6 +1355,8 @@ footer {
 	overflow-y: hidden;
 	overflow-x: auto;
 	overscroll-behavior-inline: contain;
+	border: 4px solid #fff;
+	border-radius: 5px;
 }
 
 .carousel-item {
@@ -1343,6 +1365,7 @@ footer {
 	min-width: 100%;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 
 	img {
 		min-width: 100%;
