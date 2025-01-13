@@ -119,6 +119,10 @@ section {
 	color: white;
 }
 
+.header-top .top-lang ul li:hover {
+	opacity: 0.8;
+}
+
 .navigation-bar {
 	top: 0;
 	position: sticky;
@@ -167,6 +171,11 @@ section {
 		outline: none;
 		cursor: pointer;
 		height: 40px;
+		transition: 0.3s ease;
+	}
+
+	button:hover {
+		background-color: var(--primary-color);
 	}
 }
 
@@ -1026,7 +1035,7 @@ footer {
 	margin: 0;
 	text-decoration: none;
 	z-index: 9999;
-	transition: all .6s ease;
+	transition: all 0.6s ease;
 	opacity: 0;
 	width: 0;
 }
@@ -1047,9 +1056,8 @@ footer {
 	border-bottom-left-radius: 10px;
 }
 
-
 .scroll-top-btn button i {
-    font-size: 20px;
+	font-size: 20px;
 }
 
 @media (min-width: 768px) {
@@ -1082,6 +1090,12 @@ footer {
 @media (max-width: 992px) {
 	.container {
 		max-width: 720px;
+	}
+
+	header {
+		position: sticky;
+		top: 0;
+		z-index: 9999;
 	}
 
 	.header-top {
@@ -1129,6 +1143,15 @@ footer {
 	#slider-brands .slider-card {
 		min-width: 18.25%;
 		max-width: 18.25%;
+	}
+
+	.cta-section .cta-buttons {
+		flex-direction: column;
+		min-width: 100%;
+	}
+
+	.cta-section .cta-buttons button {
+		min-width: 100%;
 	}
 
 	.footer-top {
